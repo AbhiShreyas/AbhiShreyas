@@ -1,0 +1,156 @@
+
+*{
+    margin: 0%;
+}
+body{
+    width: 100%;
+    height: 100%;
+}
+  
+#main{
+display: flex;
+}
+#leftc{
+background-color:#323B4C;
+width:30%;
+padding-left: 80px;
+}
+img{
+border-radius:50%;
+width:75%;
+margin-top:50px; 
+margin-bottom: 45px;
+margin-left:5px
+}
+h2{
+font-family: ff1, Verdana, Verdana, Geneva, sans-serif;
+color:rgb(255, 255, 255);
+text-align: left;
+font-size: 30px;
+}
+#Contact,#Education,#Language{
+list-style-type: none;
+text-align: left;
+font-family:ff1, Verdana, Verdana, Geneva, sans-serif;
+color:rgb(255, 255, 255);
+}
+#Expertise{
+font-family:ff1, Verdana, Verdana, Geneva, sans-serif;
+color:rgb(255, 255, 255);
+
+}
+#Language{
+padding-bottom: 20px;
+}
+
+a{
+color:rgb(255, 255, 255);
+}
+a:hover{
+color:bisque;
+font-size: larger;
+}
+
+#name b{
+font-family:  ff0, Verdana, Verdana, Geneva, sans-serif;
+color:rgb(50, 59, 76);
+font-weight: 700;
+border-left: none; 
+}
+
+#name{
+font-family:ff0, Verdana, Verdana, Geneva, sans-serif;
+color:rgb(50, 59, 76);
+font-weight: 400;
+font-size: 50px;
+}
+
+#profession span{
+font-family: ff0, Verdana, Verdana, Geneva, sans-serif;
+font-weight: 400;
+font-size:40px;
+color:rgb(50, 59, 76);
+letter-spacing: 3px;
+}
+#obj{
+font-family:ff0, Verdana, Verdana, Geneva, sans-serif;
+color:rgb(115, 115, 115);
+font-weight: 400;
+margin-bottom: 10px;
+}
+
+#rightc{
+padding-left: 40px;
+padding-right:40px;
+padding-top: 83px;
+}
+#em{
+font-family:ff0, Verdana, Verdana, Geneva, sans-serif;
+color:rgb(50, 59, 76);
+margin-bottom: 20px;
+}
+#gap{
+    padding-left: 20px;
+    border-left: 1px solid black;
+}
+
+#rightc hr{
+   border-bottom: 1px solid black;
+}
+
+span,p{
+font-family:ff0, Verdana, Verdana, Geneva, sans-serif;
+color:rgb(115, 115, 115);
+}
+h1{
+font-family:ff0, Verdana, Verdana, Geneva, sans-serif;
+color:rgb(50, 59, 76);
+font-size: 30px;
+}
+#softskills{
+font-family:ff0, Verdana, Verdana, Geneva, sans-serif;
+color:rgb(115, 115, 115);
+}
+#reference{
+display: flex;  
+border-left: none; 
+}
+#rf2{
+margin-left:25%;
+}
+#rt1 b{
+color:rgb(50, 59, 76);
+font-size: 20px;
+font-family:ff4, Verdana, Verdana, Geneva, sans-serif;
+}
+
+#rt2 b{
+color:rgb(50, 59, 76);
+font-size: 20px;
+}
+#p1 b{
+color:rgb(50, 59, 76);
+font-size: 13px;
+border-left: none; 
+}
+#p2 b{
+color:rgb(50, 59, 76);
+font-size: small; 
+border-left: none;
+}
+#e1 b{
+color:rgb(50, 59, 76);
+font-size: small; 
+border-left: none;
+}
+#e2 b{
+color:rgb(50, 59, 76);
+font-size: small;
+border-left: none; 
+}
+#employment,#experience,#Certifications,#softskills,#reference,#declaration{
+    margin-bottom: 20px;
+}
+#declaration{
+    margin-bottom: 40px;
+}
