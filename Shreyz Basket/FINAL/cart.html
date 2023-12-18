@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shreyz Basket-Cart</title>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+    <link rel="icon" type="image/x-icon" href="E:\SHREYZ BASKET LOGO-S.jpg">
+    <style src="styles.css"></style>
+</head>
+<body>
+    <ion-app>
+        <ion-header>
+            <ion-toolbar class="ion-text-center" color="primary">Shreyz Basket-Cart</ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-card color="danger">
+                <ion-card-content>
+                    <ion-grid>
+                        <ion-row>
+                            <ion-col size-md="6" offset-md="3">
+                                <div>
+      <!-- Inside the <body> tag -->
+<ion-card color="warning" id="cartItem">
+    <ion-card-header>
+        <ion-card-title class="ion-text-center">Selected Product</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        <ion-img id="selectedProductImage"></ion-img>
+        <p class="ion-text-center" id="selectedProductDetails">No product selected yet.</p>
+    </ion-card-content>
+</ion-card>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const selectedProductDetails = document.getElementById('selectedProductDetails');
+    const selectedProductImage = document.getElementById('selectedProductImage');
+    const selectedProduct = JSON.parse(localStorage.getItem('selectedProduct'));
+
+    if (selectedProduct) {
+        selectedProductDetails.innerHTML = `PRICE-Rs.${selectedProduct.price}<br>Product ID-${selectedProduct.productId}`;
+        selectedProductImage.src = selectedProduct.imageUrl;
+    }
+});
+</script>
+
+                                </div>
+                                <ion-button expand="block"size="default"color="tertiary"id="Paypage">Proceed to Payment</ion-button>
+                                <ion-button expand="block"size="default"color="danger"id="cancelcart">Cancel</ion-button>
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', () => {
+                                        const payPageButton = document.getElementById('Paypage');
+                                        const cancelCartButton = document.getElementById('cancelcart');
+                                        
+                                        payPageButton.addEventListener('click', () => {
+                                            showConfirmationAlert('Proceed to Payment', 'Do you want to proceed to payment?', () => {
+                                                window.location.href = 'D:/MCA Project/CODE PART/Shreyz Basket/FINAL/payment.html';
+                                            });
+                                        });
+                                        
+                                        cancelCartButton.addEventListener('click', () => {
+                                            showConfirmationAlert('Cancel Cart', 'Are you sure you want to cancel the cart?', () => {
+                                                window.location.href = 'D:/MCA Project/CODE PART/Shreyz Basket/MENU/menu.html';
+                                            });
+                                        });
+                                        
+                                        function showConfirmationAlert(header, message, callback) {
+                                            const alert = document.createElement('ion-alert');
+                                            alert.header = header;
+                                            alert.message = message;
+                                            alert.buttons = [
+                                                {
+                                                    text: 'Cancel',
+                                                    role: 'cancel',
+                                                    handler: () => {
+                                                        // Do nothing
+                                                    }
+                                                },
+                                                {
+                                                    text: 'OK',
+                                                    handler: () => {
+                                                        if (typeof callback === 'function') {
+                                                            callback();
+                                                        }
+                                                    }
+                                                }
+                                            ];
+                                            document.body.appendChild(alert);
+                                            alert.present();
+                                        }
+                                    });
+                                </script>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ion-card-content>
+            </ion-card>
+        </ion-content>
+    </ion-app>
+</body>
+</html>

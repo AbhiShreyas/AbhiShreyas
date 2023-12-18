@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shreyz Basket-Payment</title>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+    <link rel="icon" type="image/x-icon" href="E:\SHREYZ BASKET LOGO-S.jpg">
+    <style src="styles.css"></style>
+</head>
+<body>
+    <ion-app>
+        <ion-header>
+            <ion-toolbar class="ion-text-center" color="primary">Shreyz Basket-Payment</ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-grid>
+                <ion-row>
+                    <ion-col size-md="6" offset-md="3">
+                        <ion-card color="danger">
+                            <ion-card-content>
+                                <ion-item color="tertiary">
+                                    <ion-input label="Enter Full name" labelPlacement="floating" placeholder="Payer Name" type="text" id="name"></ion-input>
+                                </ion-item>
+                                <ion-item>
+                                    <ion-input label="Contact Number" labelPlacement="floating" placeholder="(+91)" type="Number" id="connum"></ion-input>
+                                </ion-item>
+                                <ion-item color="tertiary">
+                                    <ion-input label="Delivery Address" labelPlacement="floating" placeholder="Address with Pincode" id="de-address"></ion-input>
+                                </ion-item>
+                                <ion-item>
+                                    <ion-label>Amount to be Paid:</ion-label>
+                                </ion-item>
+                                <ion-item>
+                                    <ion-grid>
+                                        <ion-row>
+                                            <ion-col>
+                                                <ion-label>Price:</ion-label>
+                                            </ion-col>
+                                            <ion-col>
+                                                <ion-input readonly id="priceInput"></ion-input>
+                                            </ion-col>
+                                        </ion-row>
+                                    </ion-grid>
+                                </ion-item>
+                                <ion-item>
+                                    <ion-grid>
+                                        <ion-row>
+                                            <ion-col>
+                                                <ion-label>Product ID:</ion-label>
+                                            </ion-col>
+                                            <ion-col>
+                                                <ion-input readonly id="productIdInput"></ion-input>
+                                            </ion-col>
+                                        </ion-row>
+                                    </ion-grid>
+                                </ion-item>
+                                <ion-item>
+                                    <ion-label labelPlacement="floating" color="tertiary">Payment Mode</ion-label>
+                                    <ion-radio-group id="payment-mode-group" value="">
+                                        <ion-radio value="online">Online (UPI)</ion-radio>
+                                        <ion-radio value="cash-on-delivery">Cash on Delivery</ion-radio>
+                                    </ion-radio-group>
+                                </ion-item>
+                                <ion-button id="confirm-btn" class="ion-text-center" color="tertiary" type="round" expand="block">Confirm and Proceed</ion-button>
+                                <ion-button id="cancel-btn" class="ion-text-center" color="danger" type="round" expand="block">Cancel</ion-button>
+
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', () => {
+                                        const confirmButton = document.getElementById('confirm-btn');
+                                        const cancelButton = document.getElementById('cancel-btn');
+                                        const nameInput = document.getElementById('name');
+                                        const connumInput = document.getElementById('connum');
+                                        const deAddressInput = document.getElementById('de-address');
+                                        const priceInput = document.getElementById('priceInput');
+                                        const productIdInput = document.getElementById('productIdInput');
+                                        const paymentModeGroup = document.getElementById('payment-mode-group');
+
+                                        const selectedProduct = JSON.parse(localStorage.getItem('selectedProduct'));
+                                        if (selectedProduct) {
+                                            priceInput.value = `Rs.${selectedProduct.price}`;
+                                            productIdInput.value = selectedProduct.productId;
+                                        }
+
+                                        confirmButton.addEventListener('click', () => {
+                                            if (
+                                                nameInput.value.trim() === '' ||
+                                                connumInput.value.trim() === '' ||
+                                                deAddressInput.value.trim() === ''
+                                            ) {
+                                                showErrorAlert('Incomplete Information', 'Please fill in all the required fields.');
+                                                return;
+                                            }
+
+                                            const paymentMode = paymentModeGroup.value;
+                                            if (!paymentMode) {
+                                                showErrorAlert('Payment Mode Required', 'Please select a payment mode.');
+                                                return;
+                                            }
+
+                                            if (paymentMode === 'online') {
+                                                showOnlinePaymentAlert();
+                                            } else if (paymentMode === 'cash-on-delivery') {
+                                                showCODConfirmationAlert();
+                                            }
+                                        });
+
+                                        cancelButton.addEventListener('click', () => {
+                                            clearFormInputs();
+                                            showSuccessAlert('Cancelled!', 'Details deleted Successfully!');
+                                        });
+
+                                        function generateOrderID() {
+                                            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+                                            let orderID = '';
+                                            for (let i = 0; i < 6; i++) {
+                                                const randomIndex = Math.floor(Math.random() * characters.length);
+                                                orderID += characters[randomIndex];
+                                            }
+                                            return orderID;
+                                        }
+
+                                        function showErrorAlert(header, message) {
+                                            const alert = document.createElement('ion-alert');
+                                            alert.header = header;
+                                            alert.subHeader = 'Important message';
+                                            alert.message = message;
+                                            alert.buttons = ['OK'];
+                                            document.body.appendChild(alert);
+                                            alert.present();
+                                        }
+
+                                        function showSuccessAlert(header, message) {
+                                            const alert = document.createElement('ion-alert');
+                                            alert.header = header;
+                                            alert.subHeader = 'Important message';
+                                            alert.message = message;
+                                            alert.buttons = ['OK'];
+                                            document.body.appendChild(alert);
+                                            alert.present();
+                                        }
+
+                                        function clearFormInputs() {
+                                            nameInput.value = '';
+                                            connumInput.value = '';
+                                            deAddressInput.value = '';
+                                            paymentModeGroup.value = '';
+                                        }
+
+                                        function showOnlinePaymentAlert() {
+                                            const alert = document.createElement('ion-alert');
+                                            alert.header = 'App Under Development';
+                                            alert.message = 'We suggest you to use Cash on Delivery. Sorry for the inconvenience caused.';
+                                            alert.buttons = ['OK'];
+                                            document.body.appendChild(alert);
+                                            alert.present();
+                                        }
+
+                                        function showCODConfirmationAlert() {
+                                            const orderID = generateOrderID();
+                                            const alert = document.createElement('ion-alert');
+                                            alert.header = 'Order Placed!';
+                                            alert.message = `Thank you for shopping. Your order ID is: ${orderID}`;
+                                            alert.buttons = [
+                                                {
+                                                    text: 'OK',
+                                                    handler: () => {
+                                                        const exitAlert = document.createElement('ion-alert');
+                                                        exitAlert.header = 'Thank you!';
+                                                        exitAlert.message = 'Please choose an option:';
+                                                        exitAlert.buttons = [
+                                                            {
+                                                                text: 'Continue shopping',
+                                                                handler: () => {
+                                                                    window.location.href = 'D:/MCA Project/CODE PART/Shreyz Basket/MENU/menu.html';
+                                                                }
+                                                            },
+                                                            {
+                                                                text: 'Exit Application',
+                                                                handler: () => {
+                                                                    // You can implement the logic to exit or redirect here
+                                                                    window.location.href = 'D:/MCA Project/CODE PART/Shreyz Basket/LOGIN/login.html';
+                                                                }
+                                                            }
+                                                        ];
+                                                        document.body.appendChild(exitAlert);
+                                                        exitAlert.present();
+                                                    }
+                                                }
+                                            ];
+                                            document.body.appendChild(alert);
+                                            alert.present();
+                                        }
+                                    });
+                                </script>
+                            </ion-card-content>
+                        </ion-card>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-content>
+    </ion-app>
+</body>
+</html>

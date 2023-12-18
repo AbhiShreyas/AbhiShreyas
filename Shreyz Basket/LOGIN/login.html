@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shreyz Basket-Login</title>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+<script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+<link rel="icon" type="image/x-icon" href="E:\SHREYZ BASKET LOGO-S.jpg">
+<style src="styles.css"></style>
+</head>
+<body>
+  <ion-app>
+    <ion-header>
+      <div class="ion-text-center">
+        <ion-toolbar color="primary">Shreyz Basket
+        </ion-toolbar>
+      </div>
+    </ion-header>
+    <ion-content>
+      <ion-card>
+        <ion-card-content>
+          <div>
+            <ion-grid>
+            <ion-row class="ion-align-items">
+              <ion-col size-md="6" offset-md="3">
+                <ion-header class="ion-text-center">
+                  <ion-toolbar color="tertiary">Log-In Page</ion-toolbar>
+                </ion-header>
+                <div class="ion-text-center" color="secondary">
+                  <ion-item>
+                    <ion-input label="Username" type="text" placeholder="Enter valid Username" id="username"></ion-input><ion-icon name="person-circle-outline"></ion-icon> 
+                  </ion-item>
+                  <ion-item>
+                    <ion-input label="Email" type="email" placeholder="Eg-email@domain.com" id="email"></ion-input><ion-icon name="at-outline"></ion-icon>
+                  </ion-item>
+                  <ion-item>
+                    <ion-input label="Password" type="password" placeholder="Minimum 6 characters" id="password"></ion-input><ion-icon name="finger-print-outline"></ion-icon>
+                  </ion-item>
+                </div>
+                <ion-button shape="round" expand="block" color="danger" id="clear-btn"><ion-icon name="close-circle-outline"></ion-icon>Clear</ion-button>
+                <ion-button shape="round"expand="block" color="secondary" id="save-btn"><ion-icon name="save-outline" src="D:\MCA Project\CODE PART\Shreyz Basket\MENU\menu.html"></ion-icon>Save</ion-button>
+                
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+          </div>
+      </ion-card>
+    </ion-content>
+  </ion-app>
+  <script src="login.js"></script>
+</body>
+</html>
+
+
+
+
+

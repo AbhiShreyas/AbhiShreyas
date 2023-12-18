@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shreyz Basket-Sarees</title>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+    <link rel="icon" type="image/x-icon" href="E:\SHREYZ BASKET LOGO-S.jpg">
+    <style src="styles.css"></style>
+</head>
+<body>
+    <ion-app>
+        <ion-header>
+            <ion-toolbar class="ion-text-center" color="primary">Shreyz Basket-Sarees</ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-grid>
+                <ion-row>
+                  <ion-col size-md="6" offset-md="3">
+                    <ion-card color="warning">
+                      <ion-card-header>
+                        <ion-card-title class="ion-text-center">BLUE WITH GOLDEN SAREE</ion-card-title>
+                        <ion-img src="E:\Video editor\Picture1.jpg"></ion-img>
+                        </ion-card-header>
+                      <ion-card-content>
+                        <p  class="ion-text-center">PRICE-Rs.500
+                                                        
+                            <br>
+                            Product ID-SNB1W<br>
+                            </p>
+                        <ion-button expand="block"size="default" color="tertiary" id="wpcs1" onclick="addToCart('BLUE WITH GOLDEN SAREE',500,'SNB1W','E:\\Video editor\\Picture1.jpg')">Proceed to Cart</ion-button>
+                        <script>
+                          function addToCart(productName, price, productId,imageUrl) {
+                              localStorage.setItem('selectedProduct', JSON.stringify({
+                                  name: productName,
+                                  price: price,
+                                  productId: productId,
+                                  imageUrl: imageUrl
+                              }));
+                              window.location.href = 'D:\\MCA Project\\CODE PART\\Shreyz Basket\\FINAL\\cart.html';
+                          }
+                          </script>
+                      </ion-card-content>
+                    </ion-card>
+                    <ion-card color="warning">
+                      <ion-card-header>
+                        <ion-card-title class="ion-text-center">RED WITH GOLDEN SAREE</ion-card-title>
+                        <ion-img src="E:\Video editor\Picture2.jpg"></ion-img>
+                    </ion-card-header>
+                      <ion-card-content>
+                        <p  class="ion-text-center">PRICE-Rs.650                           
+                            <br>
+                            Product ID-SRG2W 
+                            <br>
+                            </p>
+                        <ion-button expand="block"size="default"color="tertiary" id="wpcs2">Proceed to Cart</ion-button>
+                      </ion-card-content>
+                    </ion-card>
+                    <ion-card color="warning">
+                      <ion-card-header>
+                        <ion-card-title class="ion-text-center">BLACK WITH PINK SAREE</ion-card-title>
+                        <ion-img src="E:\Video editor\Picture3.jpg"></ion-img>
+                      </ion-card-header>
+                      <ion-card-content>
+                        <p  class="ion-text-center">PRICE-Rs.300             
+                            <br>
+                            Product ID-SBL3W<br>
+                            </p>
+                        <ion-button expand="block"size="default"color="tertiary" id="wpcs3">Proceed to Cart</ion-button>
+                      </ion-card-content>
+                    </ion-card >
+                    <ion-card color="warning">
+                        <ion-card-header>
+                          <ion-card-title class="ion-text-center">WHITE WITH GOLDEN SAREE</ion-card-title>
+                          <ion-img src="E:\Video editor\Picture4.jpg"></ion-img>
+                        </ion-card-header>
+                        <ion-card-content>
+                            <p  class="ion-text-center">PRICE-Rs.550                                
+                                <br>
+                                Product ID-SWG4W
+                                <br>
+                                </p>
+                          <ion-button expand="block"size="default"color="tertiary" id="wpcs4">Proceed to Cart</ion-button>
+                        </ion-card-content>
+                      </ion-card>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+        </ion-content>
+    </ion-app>
+</body>
+</html>
+
+

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shreyz Basket-Churidhar</title>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+    <link rel="icon" type="image/x-icon" href="E:\SHREYZ BASKET LOGO-S.jpg">
+    <style src="styles.css"></style>
+</head>
+<body>
+    <ion-app>
+        <ion-header>
+            <ion-toolbar class="ion-text-center" color="primary">Shreyz Basket-Churidhar</ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-grid>
+                <ion-row>
+                  <ion-col size-md="6" offset-md="3">
+                    <ion-card color="warning">
+                      <ion-card-header>
+                        <ion-card-title class="ion-text-center">GOLDEN WITH RED CHURIDHAR</ion-card-title>
+                        <ion-img src="E:\Video editor\Picture5.jpg"></ion-img>
+                        </ion-card-header>
+                      <ion-card-content>
+                        <p  class="ion-text-center">PRICE-Rs.500                 
+                            <br>
+                            Product ID-CYR1W<br>
+                            </p>
+                        <ion-button expand="block"size="default" color="tertiary" id="wpch1" onclick="addToCart('GOLDEN WITH RED CHURIDHAR', 500, 'CYR1W','E:\\Video editor\\Picture5.jpg')">Proceed to Cart</ion-button>
+                        <script>
+                          function addToCart(productName, price, productId,imageUrl) {
+                              localStorage.setItem('selectedProduct', JSON.stringify({
+                                  name: productName,
+                                  price: price,
+                                  productId: productId,
+                                  imageUrl: imageUrl
+                              }));
+                              window.location.href = 'D:\\MCA Project\\CODE PART\\Shreyz Basket\\FINAL\\cart.html';
+                          }
+                          </script>
+                    </ion-card-content>
+                    </ion-card>
+                    <ion-card color="warning">
+                      <ion-card-header>
+                        <ion-card-title class="ion-text-center">ORANGE CHURIDHAR</ion-card-title>
+                        <ion-img src="E:\Video editor\Picture6.jpg"></ion-img>
+                    </ion-card-header>
+                      <ion-card-content>
+                        <p  class="ion-text-center">PRICE-Rs.550                          
+                            <br>
+                            Product ID-COR2W
+                            <br>
+                            </p>
+                        <ion-button expand="block"size="default"color="tertiary" id="wpch2" onclick="addToCart('ORANGE CHURIDHAR', 550, 'COR2W','E:\\Video editor\\Picture6.jpg')">Proceed to Cart</ion-button>
+                        <script>
+                          function addToCart(productName, price, productId,imageUrl) {
+                              localStorage.setItem('selectedProduct', JSON.stringify({
+                                  name: productName,
+                                  price: price,
+                                  productId: productId,
+                                  imageUrl: imageUrl
+                              }));
+                              window.location.href = 'D:\\MCA Project\\CODE PART\\Shreyz Basket\\FINAL\\cart.html';
+                          }
+                          </script>
+                      </ion-card-content>
+                    </ion-card>
+                    <ion-card color="warning">
+                      <ion-card-header>
+                        <ion-card-title class="ion-text-center">BABY PINK CHURIDHAR</ion-card-title>
+                        <ion-img src="E:\Video editor\Picture7.jpg"></ion-img>
+                      </ion-card-header>
+                      <ion-card-content>
+                        <p  class="ion-text-center">PRICE-Rs.450                          
+                            <br>
+                            Product ID-CPI3W<br>
+                            </p>
+                        <ion-button expand="block"size="default"color="tertiary" id="wpch3" onclick="addToCart('BABY PINK CHURIDHAR', 450, 'CPI3W','E:\\Video editor\\Picture7.jpg')">Proceed to Cart</ion-button>
+                        <script>
+                          function addToCart(productName, price, productId,imageUrl) {
+                              localStorage.setItem('selectedProduct', JSON.stringify({
+                                  name: productName,
+                                  price: price,
+                                  productId: productId,
+                                  imageUrl: imageUrl
+                              }));
+                              window.location.href = 'D:\\MCA Project\\CODE PART\\Shreyz Basket\\FINAL\\cart.html';
+                          }
+                          </script>
+                      </ion-card-content>
+                    </ion-card>
+                    <ion-card color="warning">
+                        <ion-card-header>
+                          <ion-card-title class="ion-text-center">REDDISH ORANGE CHURIDHAR</ion-card-title>
+                          <ion-img src="E:\Video editor\Picture8.jpg"></ion-img>
+                        </ion-card-header>
+                        <ion-card-content>
+                            <p  class="ion-text-center">PRICE-Rs.600                              
+                                <br>
+                                Product ID-COG4W
+                                <br>
+                                </p>
+                          <ion-button expand="block"size="default"color="tertiary" id="wpch4" onclick="addToCart('REDDISH ORANGE CHURIDHAR', 600, 'COG4W','E:\\Video editor\\Picture8.jpg')">Proceed to Cart</ion-button>
+                          <script>
+                            function addToCart(productName, price, productId,imageUrl) {
+                                localStorage.setItem('selectedProduct', JSON.stringify({
+                                    name: productName,
+                                    price: price,
+                                    productId: productId,
+                                    imageUrl: imageUrl
+                                }));
+                                window.location.href = 'D:\\MCA Project\\CODE PART\\Shreyz Basket\\FINAL\\cart.html';
+                            }
+                            </script>
+                        </ion-card-content>
+                      </ion-card>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+        </ion-content>
+    </ion-app>
+</body>
+</html>
+
+
